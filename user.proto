@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "/pb";
+package = "proto";
+
+service UserService{
+    rpc GetByPhone(GetByPhoneRequest)returns(GetByPhoneResponse){}
+}
+
+message User {
+   int32 id = 1;
+   int32 phone = 2;
+   string name = 3;
+   string password = 4;
+   string email = 5;
+}
+
+message GetByPhoneRequest{
+    int32 phone = 1;
+}
+
+message GetByPhoneResponse{
+    int32 status = 1;
+    string message = 2;
+    repeated User data = 3;
+}
